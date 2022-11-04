@@ -22,21 +22,17 @@ const stations = [
 
 const chooseStations = function (stations) {
   let goodStations = []; // new empty array to hold the good stations
+  
   for (const station of stations) { // iterate through stations
+    const name = station[0];
     const capacity = station[1];
-
-    if (capacity >= 20) {
-      const type = station[2];
-
-      if (type === 'school' || type === 'community centre') {
-        const name = station[0];
-        goodStations.push(name);
-      }
-
-    }
-    return goodStations;
+    const type = station[2];
+    
+    if (capacity >= 20 && (type === 'school' || type === 'community centre')) {
+      goodStations.push(name); // populate the empty array
+    } 
   }
+  return goodStations;
 }
-
 
 console.log(chooseStations(stations));
